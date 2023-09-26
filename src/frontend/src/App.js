@@ -10,7 +10,7 @@ function App() {
   useEffect(() => {
     setLoading(true);
     fetch(
-      'http://localhost:8000/api/main/'
+      'http://localhost:8000/api/sample/'
     ).then(res => {
       const data = res.data;
       setLoading(false);
