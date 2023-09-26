@@ -25,6 +25,55 @@ poetry config virtualenvs.create false --local
 poetry install
 ```
 
+#### Install PostgreSQL
+https://www.postgresql.org/download/
+After initializing PostgreSQL, remember the following information:
+- USER: user of your database
+- NAME: name of your database
+- PASSWORD: password of your database
+
+#### Configure PostgreSQL with Django
+The following supposes that the DATABASES variable is correctly set as follows:
+```
+DATABASES = {
+    'default': {
+        'ENGINE': 'django.db.backends.postgresql',
+        'OPTIONS': {
+            'service': 'my_service',
+            'passfile': '.my_pgpass',
+        },
+    },
+}
+```
+
+Create in a convenient location a file named `.pg_service.conf` with the following content:
+```
+[my_service]
+host=localhost
+user=USER
+dbname=NAME
+password=PASSWORD
+port=5432
+```
+This file enables Django to log into the database.
+
+Create in the same convenient location a file named `.my_pgpass` with the following content:
+```
+localhost:5432:USER:NAME:PASSWORD
+```
+This file enables you to log into the database using command line without entering the password.
+
+Add to the following environment variables to your system
+```
+PGPASSFILE = your/convenient/location/.my_pgpass
+PGSERVICEFILE = your/convenient/location/.pg_service.conf
+```
+
+#### Connect to database
+```
+psql -U postgres
+```
+
 #### Generate new migrations
 ```
 # in /src folder
