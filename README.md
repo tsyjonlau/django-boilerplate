@@ -1,1 +1,1 @@
-# django-boilerplate
+# django-react-boilerplate
