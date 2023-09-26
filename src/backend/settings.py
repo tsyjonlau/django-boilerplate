@@ -62,7 +62,7 @@ ROOT_URLCONF = 'backend.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [os.path.join(BASE_DIR, 'build')],
+        'DIRS': [os.path.join(BASE_DIR, 'frontend/build')],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
@@ -138,13 +138,10 @@ if IS_DEVELOPMENT:
         'http://localhost:3000',
     ])
 
+# Static file and whitenoise configuration
 STATIC_URL = '/static/'
-
-# Tell Django where to look for React's static files (css, js)
 STATICFILES_DIRS = [
-  os.path.join(BASE_DIR, 'build/static'),
+  os.path.join(BASE_DIR, 'frontend/build/static'), # Sources for static file collection
 ]
-
+STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles') # Destination folder for static file collection
 STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
-
-STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
