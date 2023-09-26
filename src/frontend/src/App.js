@@ -29,6 +29,7 @@ function App() {
           <>
             <img src={logo} className="App-logo" alt="logo" />
             <p>
+              GET /api/sample/ is successful.
               Edit <code>src/App.js</code> and save to reload.
             </p>
             <a
