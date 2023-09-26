@@ -10,7 +10,10 @@ For the full list of settings and their values, see
 https://docs.djangoproject.com/en/4.2/ref/settings/
 """
 
+import sys
 from pathlib import Path
+
+is_development = (sys.argv[1] == 'runserver')
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -23,7 +26,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = 'django-insecure-4_!y#@++oafvch!!enaf&5jd0^q7@7ooqroq_&$98ca6_4zl(n'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = is_development
 
 ALLOWED_HOSTS = []
 
@@ -127,7 +130,9 @@ STATIC_URL = 'static/'
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 # Necessary to make React front-end work with Django
-CORS_ALLOWED_ORIGINS = [
-    'http://localhost:8000',
-    'http://localhost:3000',
-]
+CORS_ALLOWED_ORIGINS = []
+if is_development:
+    CORS_ALLOWED_ORIGINS.extend([
+        'http://localhost:8000',
+        'http://localhost:3000',
+    ])
