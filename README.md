@@ -124,6 +124,13 @@ For production we will serve front-end from the same domain. Refer to next secti
 yarn start
 ```
 
+## Running tests
+In this boilerplate, there is only one Django project (`main`)
+```
+# in /src folder
+python manage.py test main
+```
+
 ## Setup for production
 
 #### Build front-end for production
@@ -136,10 +143,12 @@ yarn build
 Note that the `staticfiles` folder has to be created in order to be able retrieve all static files.
 This collects all static files specified in the `STATICFILES_DIRS` setting.
 ```
+# in /src folder
 python manage.py collectstatic
 ```
 
 #### Run web server in production
 ```
+# in /src folder
 python manage.py runserver --nostatic
 ```
