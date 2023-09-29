@@ -124,11 +124,22 @@ For production we will serve front-end from the same domain. Refer to next secti
 yarn start
 ```
 
+#### Linting and testing
+
+## Linting code
+```
+# in /src/frontend folder
+yarn lint
+```
+
 ## Running tests
 In this boilerplate, there is only one Django project (`main`)
 ```
 # in /src folder
 python manage.py test main
+
+# in /src/frontend folder
+yarn test
 ```
 
 ## Setup for production
