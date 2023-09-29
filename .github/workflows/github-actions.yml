@@ -43,8 +43,6 @@ jobs:
       - name: Run JS Lint and Tests
         run: |
           cd src/frontend
-          pwd
-          ls -a
           yarn lint
           yarn test
 
