@@ -2,6 +2,14 @@
 
 A boilerplate for developing web applications using Django and React.
 
+Further details on tech stack
+- **Back-end**: Django
+- **Front-end**: React 16.8+, Redux toolkit, webpack, Babel/ES6,
+- **Database**: PostgreSQL for running app, SQLite for testing
+- **Dependency managers**: poetry (back-end), yarn (front-end)
+- **Linting**: flake8 (back-end), eslint (front-end)
+- **Testing**: django.test (back-end), jest and @react/testing-library (front-end)
+
 ## Setup back-end
 
 #### Install python
