@@ -130,6 +130,9 @@ yarn start
 ```
 # in /src/frontend folder
 yarn lint
+
+# in /src/backend folder
+flake8 .
 ```
 
 ## Running tests

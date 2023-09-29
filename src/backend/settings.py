@@ -148,7 +148,7 @@ if IS_DEVELOPMENT:
 # Static file and whitenoise configuration
 STATIC_URL = '/static/'
 STATICFILES_DIRS = [
-  os.path.join(BASE_DIR, 'frontend/build/static'), # Sources for static file collection
+    os.path.join(BASE_DIR, 'frontend/build/static'),  # Sources for static file collection
 ]
-STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles') # Destination folder for static file collection
+STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')  # Destination folder for static file collection
 STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'

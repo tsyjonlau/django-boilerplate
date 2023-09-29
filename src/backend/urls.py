@@ -20,8 +20,10 @@ from django.shortcuts import render
 
 from main.views import SampleView
 
+
 def render_react(request):
     return render(request, 'index.html')
+
 
 # The re_path redirect every path that doesn't match to the React front-end.
 urlpatterns = [
