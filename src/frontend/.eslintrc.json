@@ -6,7 +6,7 @@
     "extends": [
         "plugin:react/recommended"
     ],
-    "ignorePatterns": ["node_modules/", "build/"]
+    "ignorePatterns": ["node_modules/", "build/"],
     "parserOptions": {
         "ecmaVersion": "latest",
         "sourceType": "module"
