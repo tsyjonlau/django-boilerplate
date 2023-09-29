@@ -41,6 +41,7 @@ jobs:
           yarn install
       - name: Run JS Lint and Tests
         run: |
+          cd src/frontend
           yarn lint
           yarn test
 
@@ -69,8 +70,9 @@ jobs:
           yarn install
       - name: Build JS
         run: |
+          cd src/frontend
           yarn build
       - name: Setup JS build with Django App
         run: |
-          cd ../
+          cd src
           python manage.py collectstatic
