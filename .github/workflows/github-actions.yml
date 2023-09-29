@@ -39,7 +39,7 @@ jobs:
         run: |
           cd src/frontend
           npm i -g yarn
-          yarn install
+          yarn
       - name: Run JS Lint and Tests
         run: |
           cd src/frontend
