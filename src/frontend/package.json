@@ -41,8 +41,6 @@
     "jest-fetch-mock": "^3.0.3",
     "node-polyfill-webpack-plugin": "^2.0.1",
     "style-loader": "^3.3.3",
-    "ts-loader": "^9.4.4",
-    "typescript": "^5.2.2",
     "webpack": "^5.88.2",
     "webpack-cli": "^5.1.4",
     "webpack-dev-server": "^4.15.1",
