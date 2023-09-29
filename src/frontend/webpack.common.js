@@ -1,5 +1,6 @@
 const path = require('path');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
+const NodePolyfillPlugin = require('node-polyfill-webpack-plugin');
 
 module.exports = {
   mode: 'development',
@@ -8,6 +9,9 @@ module.exports = {
     new HtmlWebpackPlugin({
       template: path.resolve(__dirname, './public/index.html'),
       filename: 'index.html'
+    }),
+    new NodePolyfillPlugin({
+      excludeAliases: ['console']
     })
   ],
   module: {
@@ -28,7 +32,7 @@ module.exports = {
       },
       {
         test: /\.css$/i,
-        use: ["style-loader", "css-loader"]
+        use: ['style-loader', 'css-loader']
       },
       {
         test: /\.(png|jpe?g|gif|ico)$/,
