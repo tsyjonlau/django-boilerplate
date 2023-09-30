@@ -1,10 +1,17 @@
 const path = require('path');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const NodePolyfillPlugin = require('node-polyfill-webpack-plugin');
+const BundleTracker = require('webpack-bundle-tracker');
 
 module.exports = {
   mode: 'development',
   entry: path.resolve(__dirname, './src/index.js'),
+  optimization: {
+    splitChunks: {
+      chunks: 'all',
+      name: 'vendors',
+    },
+  },
   plugins: [
     new HtmlWebpackPlugin({
       template: path.resolve(__dirname, './public/index.html'),
@@ -12,7 +19,11 @@ module.exports = {
     }),
     new NodePolyfillPlugin({
       excludeAliases: ['console']
-    })
+    }),
+    new BundleTracker({
+      path: path.join(__dirname),
+      filename: 'webpack-stats.json'
+    }),
   ],
   module: {
     rules: [
@@ -32,7 +43,7 @@ module.exports = {
       },
       {
         test: /\.css$/i,
-        use: ['style-loader', 'css-loader']
+        use: ['style-loader', 'css-loader'],
       },
       {
         test: /\.(png|jpe?g|gif|ico)$/,

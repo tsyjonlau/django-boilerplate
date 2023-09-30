@@ -1,3 +1,7 @@
+{% load static %}
+
+{% load render_bundle from webpack_loader %}
+
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -10,6 +14,7 @@
       content="Web site created using create-react-app"
     />
     <link rel="apple-touch-icon" href="logo192.png" />
+    {% render_bundle 'main' 'css' %}
     <!--
       manifest.json provides metadata used when your web app is installed on a
       user's mobile device or desktop. See https://developers.google.com/web/fundamentals/web-app-manifest/
@@ -31,4 +36,5 @@
       To create a production bundle, use `npm run build` or `yarn build`.
     -->
   </body>
+  {% render_bundle 'main' 'js' %}
 </html>
