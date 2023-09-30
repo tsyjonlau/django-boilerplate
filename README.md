@@ -150,6 +150,7 @@ yarn test
 ```
 
 ## Setup for production
+We use Render to deploy the application. The following steps are just here to explain what really happens when Render deploys the app.
 
 #### Build front-end for production
 ```
