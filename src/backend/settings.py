@@ -9,11 +9,14 @@ https://docs.djangoproject.com/en/4.2/topics/settings/
 For the full list of settings and their values, see
 https://docs.djangoproject.com/en/4.2/ref/settings/
 """
+import mimetypes
 import os
 import sys
 from pathlib import Path
 
 IS_DEVELOPMENT = (sys.argv[1] == 'runserver')
+
+IS_DEVELOPMENT = (sys.argv[2] == 'nostatic')
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -28,8 +31,9 @@ SECRET_KEY = 'django-insecure-4_!y#@++oafvch!!enaf&5jd0^q7@7ooqroq_&$98ca6_4zl(n
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = IS_DEVELOPMENT
 
-ALLOWED_HOSTS = []
-
+# To be modified for production and safety
+if IS_DEVELOPMENT is False:
+    ALLOWED_HOSTS = ['*']
 
 # Application definition
 
@@ -131,6 +135,12 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/4.2/howto/static-files/
 
 STATIC_URL = 'static/'
+STATICFILES_DIRS = [
+    os.path.join(BASE_DIR, 'frontend/build/static'),  # Sources for static file collection
+]
+STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')  # Destination folder for static file collection
+STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
+
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/4.2/ref/settings/#default-auto-field
@@ -144,11 +154,3 @@ if IS_DEVELOPMENT:
         'http://localhost:8000',
         'http://localhost:3000',
     ])
-
-# Static file and whitenoise configuration
-STATIC_URL = '/static/'
-STATICFILES_DIRS = [
-    os.path.join(BASE_DIR, 'frontend/build/static'),  # Sources for static file collection
-]
-STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')  # Destination folder for static file collection
-STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
