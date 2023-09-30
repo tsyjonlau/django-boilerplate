@@ -143,3 +143,5 @@ WEBPACK_LOADER = {
         'STATS_FILE': str(BASE_DIR / 'frontend' / 'webpack-stats.json'),
     },
 }
+
+ALLOWED_HOSTS = []
