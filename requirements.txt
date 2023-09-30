@@ -1,6 +1,6 @@
 asgiref==3.7.2
 attrs==23.1.0
--e git+ssh://git@github.com/tsyjonlau/django-boilerplate.git@68482c6f908f74e2eedf8fa7f1f61e761c20dbc0#egg=backend&subdirectory=src
+-e git+ssh://git@github.com/tsyjonlau/django-boilerplate.git@427d4f7e707e2a154e54e24c8247c013082a5fe9#egg=backend
 build==0.10.0
 CacheControl==0.13.1
 certifi==2023.7.22
