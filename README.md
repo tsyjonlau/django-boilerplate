@@ -84,21 +84,18 @@ psql -U postgres
 
 #### Generate new migrations
 ```
-# in /src folder
 python manage.py makemigrations
 ```
 
 #### Migrate database
 ```
-# in /src folder
 python manage.py migrate
 ```
 
 #### Run web server in development
 Note that this runs on http://localhost:8000.
 ```
-# in /src folder
-python manage.py runserver --settings=backend.settings_development
+python manage.py runserver
 ```
 
 #### Create superuser for admin website
@@ -128,7 +125,7 @@ yarn
 Note that this runs on http://localhost:3000.
 For production we will serve front-end from the same domain. Refer to next section.
 ```
-# in /src/frontend folder
+# in frontend folder
 yarn start
 ```
 
@@ -136,20 +133,19 @@ yarn start
 
 ## Linting code
 ```
-# in /src/frontend folder
+# in frontend folder
 yarn lint
 
-# in /src/backend folder
+# in root folder
 flake8 .
 ```
 
 ## Running tests
 In this boilerplate, there is only one Django project (`main`)
 ```
-# in /src folder
 python manage.py test main
 
-# in /src/frontend folder
+# in frontend folder
 yarn test
 ```
 
@@ -157,19 +153,18 @@ yarn test
 
 #### Build front-end for production
 ```
-# in /src/frontend folder
+# in frontend folder
 yarn build
 ```
 
 #### Generate static files
 This collects all static files specified in the `STATICFILES_DIRS` setting.
 ```
-# in /src folder
 python manage.py collectstatic
 ```
 
 #### Run web server in production
+We are using gunicorn
 ```
-# in /src folder
-python manage.py runserver
+gunicorn -b 127.0.0.1:8000 -e DJANGO_SETTINGS_MODULE=backend.settings_production backend.wsgi:application
 ```
