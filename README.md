@@ -162,7 +162,6 @@ yarn build
 ```
 
 #### Generate static files
-Note that the `staticfiles` folder has to be created in order to be able retrieve all static files.
 This collects all static files specified in the `STATICFILES_DIRS` setting.
 ```
 # in /src folder

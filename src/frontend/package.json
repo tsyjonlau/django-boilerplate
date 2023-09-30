@@ -6,7 +6,7 @@
   "scripts": {
     "start": "webpack serve --config webpack.dev.js",
     "build": "webpack --config webpack.prod.js",
-    "lint": "eslint -c ./.eslintrc.json **/*.js --ignore-pattern node_modules/ --ignore-pattern build/",
+    "lint": "eslint -c .eslintrc.json --ext .js,.jsx ./",
     "test": "jest",
     "test:watch": "yarn test -- --watch"
   },

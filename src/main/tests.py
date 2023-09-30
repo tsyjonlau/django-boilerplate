@@ -1,5 +1,6 @@
 from django.test import TestCase
 
+
 # Create your tests here.
 class SampleViewTests(TestCase):
     def test_get(self):
