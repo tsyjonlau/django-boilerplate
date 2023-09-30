@@ -98,7 +98,7 @@ python manage.py migrate
 Note that this runs on http://localhost:8000.
 ```
 # in /src folder
-python manage.py runserver
+python manage.py runserver --settings=backend.settings_development
 ```
 
 #### Create superuser for admin website
@@ -171,5 +171,5 @@ python manage.py collectstatic
 #### Run web server in production
 ```
 # in /src folder
-python manage.py runserver --nostatic
+python manage.py runserver
 ```

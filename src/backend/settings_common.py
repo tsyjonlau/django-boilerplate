@@ -13,8 +13,6 @@ import os
 import sys
 from pathlib import Path
 
-IS_DEVELOPMENT = (len(sys.argv) > 2 and sys.argv[2] == 'nostatic')
-
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
 
@@ -23,14 +21,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # See https://docs.djangoproject.com/en/4.2/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = 'django-insecure-4_!y#@++oafvch!!enaf&5jd0^q7@7ooqroq_&$98ca6_4zl(n'
-
-# SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = IS_DEVELOPMENT
-
-# To be modified for production and safety
-if IS_DEVELOPMENT is False:
-    ALLOWED_HOSTS = ['*']
+# SECRET_KEY = 'django-insecure-4_!y#@++oafvch!!enaf&5jd0^q7@7ooqroq_&$98ca6_4zl(n'
 
 # Application definition
 
@@ -145,13 +136,7 @@ STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
-# Necessary to make React front-end work with Django
 CORS_ALLOWED_ORIGINS = []
-if IS_DEVELOPMENT:
-    CORS_ALLOWED_ORIGINS.extend([
-        'http://localhost:8000',
-        'http://localhost:3000',
-    ])
 
 WEBPACK_LOADER = {
     'DEFAULT': {
