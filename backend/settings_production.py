@@ -1,6 +1,6 @@
 import django_heroku
 
-from backend.settings_common import *
+from backend.settings_common import *  # noqa: F401,F403
 
 DEBUG = False
 

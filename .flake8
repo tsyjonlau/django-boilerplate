@@ -1,4 +1,4 @@
 [flake8]
-exclude = migrations,frontend
+exclude = migrations,frontend,django_tutorial,.venv
 max-line-length = 120
 ignore = E402
