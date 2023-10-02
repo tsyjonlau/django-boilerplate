@@ -4,7 +4,7 @@ import dj_database_url
 
 from backend.settings_common import *  # noqa: F401,F403
 
-DEBUG = False
+DEBUG = True
 
 ALLOWED_HOSTS = [
     'https://django-react-boilerplate-ilro.onrender.com/'
