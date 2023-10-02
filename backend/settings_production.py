@@ -6,9 +6,8 @@ from backend.settings_common import *  # noqa: F401,F403
 
 DEBUG = False
 
-# Necessary to make React front-end work with Django
-CORS_ALLOWED_ORIGINS = [
-    'http://localhost:10000',
+ALLOWED_HOSTS = [
+    'https://django-react-boilerplate-ilro.onrender.com/'
 ]
 
 DATABASES = {
