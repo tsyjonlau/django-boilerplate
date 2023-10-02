@@ -9,8 +9,9 @@ function App() {
 
   useEffect(() => {
     setLoading(true);
+    const fetchDomain = process.env.NODE_ENV === 'development' ? 'http://localhost:8000' : 'https://django-react-boilerplate-ilro.onrender.com';
     fetch(
-      'http://localhost:8000/api/sample/'
+      `${fetchDomain}/api/sample/`
     ).then(res => {
       const data = res.data;
       setLoading(false);
