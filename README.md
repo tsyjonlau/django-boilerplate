@@ -10,6 +10,8 @@ Further details on tech stack
 - **Linting**: flake8 (back-end), eslint (front-end)
 - **Testing**: django.test (back-end), jest and @react/testing-library (front-end)
 
+**Key Insight**: While this fullstack boilerplate was an educational project, the experience highlighted the complexities of integrating backend and frontend into a single server. For practical development, consider using separate servers for better modularity and ease of maintenance.
+
 ## Setup back-end
 
 #### Install python
